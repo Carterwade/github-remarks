@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         GitHub Remarks
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @version      1.0.1
+// @description  给GitHub用户添加备注
+// @author       Shaun Young
 // @match        https://github.com/*
 // @grant        none
 // ==/UserScript==
@@ -47,6 +47,7 @@
         div.addEventListener('click', () => {
           let input = document.createElement('input');
           input.placeholder = 'Remark and press Enter';
+          input.style = `z-index:${props.zIndex};`;
           div.parentElement.append(input);
           input.focus();
           input.onkeydown = (e) => {
